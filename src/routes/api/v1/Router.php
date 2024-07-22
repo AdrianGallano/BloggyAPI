@@ -6,6 +6,7 @@ use FastRoute;
 use Src\Controllers\TokenController;
 use Src\Controllers\UserController;
 use Src\Controllers\BlogController;
+use Src\Controllers\CommentController;
 
 class Router
 {
@@ -34,8 +35,12 @@ class Router
             
 
             /* comment */
+            $r->addRoute('POST', '/comments', [CommentController::class, 'createComment']);
+            $r->addRoute('GET', '/comments', [CommentController::class, 'getAllComments']);
+            $r->addRoute('GET', '/comments/{commentId:\d+}', [CommentController::class, 'getComment']);
+            $r->addRoute('DELETE', '/comments/{commentId:\d+}', [CommentController::class, 'deleteComment']);
+            $r->addRoute('PUT', '/comments/{commentId:\d+}', [CommentController::class, 'updateComment']);
 
-            
             /* userblogcomment */
         });
     }
