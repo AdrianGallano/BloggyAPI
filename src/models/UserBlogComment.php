@@ -44,6 +44,7 @@ class UserBlogComment
     function get($blog_id, $comment_id)
     {
         $queryStr = "SELECT 
+            UserBlogComment.user_id,
             Comment.content as comment_content, 
             Comment.is_edited as comment_is_edited,
             Comment.created_at as comment_created_at,
@@ -75,6 +76,7 @@ class UserBlogComment
     {
         if ($filterStr == "") {
             $queryStr = "SELECT 
+            UserBlogComment.user_id,
             Comment.content as comment_content, 
             Comment.is_edited as comment_is_edited,
             Comment.created_at as comment_created_at,
@@ -87,6 +89,7 @@ class UserBlogComment
             JOIN Blog ON UserBlogComment.blog_id = Blog.blog_id";
         } else {
             $queryStr = "SELECT 
+            UserBlogComment.user_id,
             Comment.content as comment_content, 
             Comment.is_edited as comment_is_edited,
             Comment.created_at as comment_created_at,
