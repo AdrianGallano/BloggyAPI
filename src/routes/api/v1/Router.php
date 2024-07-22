@@ -7,6 +7,7 @@ use Src\Controllers\TokenController;
 use Src\Controllers\UserController;
 use Src\Controllers\BlogController;
 use Src\Controllers\CommentController;
+use Src\Controllers\UserBlogCommentController;
 
 class Router
 {
@@ -42,6 +43,11 @@ class Router
             $r->addRoute('PUT', '/comments/{commentId:\d+}', [CommentController::class, 'updateComment']);
 
             /* userblogcomment */
+            $r->addRoute('POST', '/users/blogs/comments', [UserBlogCommentController::class, 'createUserBlogComment']);
+            $r->addRoute('GET', '/users/blogs/comments', [UserBlogCommentController::class, 'getAllUserBlogComments']);
+            $r->addRoute('GET', '/users/blogs/{blogId:\d+}/comments/{commentId:\d+}', [UserBlogCommentController::class, 'getUserBlogComment']);
+            $r->addRoute('DELETE', '/users/blogs/{blogId:\d+}/comments/{commentId:\d+}', [UserBlogCommentController::class, 'deleteUserBlogComment']);
+
         });
     }
 
