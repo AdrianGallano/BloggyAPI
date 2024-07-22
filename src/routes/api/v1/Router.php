@@ -5,6 +5,7 @@ namespace Src\Routes\Api\V1;
 use FastRoute;
 use Src\Controllers\TokenController;
 use Src\Controllers\UserController;
+use Src\Controllers\BlogController;
 
 class Router
 {
@@ -17,13 +18,25 @@ class Router
             $r->addRoute('POST', '/users', [UserController::class, 'postUser']);
             $r->addRoute('GET', '/users', [UserController::class, 'getAllUser']);
             $r->addRoute('GET', '/users/{userId:\d+}', [UserController::class, 'getUser']);
-            $r->addRoute('PATCH', '/users/{userId:\d+}', [UserController::class, 'updateUser']);
+            $r->addRoute('PUT', '/users/{userId:\d+}', [UserController::class, 'updateUser']);
             $r->addRoute('DELETE', '/users/{userId:\d+}', [UserController::class, 'deleteUser']);
             $r->addRoute('POST', '/users/{userId:\d+}/avatar', [UserController::class, 'uploadAvatar']);
 
             /* tokens */
             $r->addRoute('POST', '/token', [TokenController::class, 'postToken']);
 
+            /* blogs */
+            $r->addRoute('POST', '/blogs', [BlogController::class, 'createBlog']);
+            $r->addRoute('GET', '/blogs', [BlogController::class, 'getAllBlogs']);
+            $r->addRoute('GET', '/blogs/{blogId:\d+}', [BlogController::class, 'getBlog']);
+            $r->addRoute('DELETE', '/blogs/{blogId:\d+}', [BlogController::class, 'deleteBlog']);
+            $r->addRoute('PUT', '/blogs/{blogId:\d+}', [BlogController::class, 'updateBlog']);
+            
+
+            /* comment */
+
+            
+            /* userblogcomment */
         });
     }
 
