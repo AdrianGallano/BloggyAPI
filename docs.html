@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>API Documentation</h1>
+    <h2>User Routes:</h2>
+    <h3>No Authorization</h3>
+    <table>
+        <tr>
+            <th>Method</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+            <th>Payload</th>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>/users</td>
+            <td>Create User</td>
+            <td>username (string), first_name (string), last_name (string), email (string), password (string),
+                confirm_password (string)</td>
+        </tr>
+    </table>
+
+    <h3>Authorized:</h3>
+    <table>
+        <tr>
+            <th>Method</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+            <th>Payload</th>
+            <th>Filters</th>
+        </tr>
+        <tr>
+            <td>PATCH</td>
+            <td>/users/{id}</td>
+            <td>Update a single User</td>
+            <td>first_name (string), last_name (string)</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>/users/{id}</td>
+            <td>Delete a single User</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>/users/{id}</td>
+            <td>Retrieve a single User</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>/users</td>
+            <td>Get all users</td>
+            <td>N/A</td>
+            <td>username, email, first_name, last_name</td>
+        </tr>
+    </table>
+    <!-- Authentication Section -->
+    <h2>Authentication:</h2>
+    <table>
+        <tr>
+            <th>Method</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+            <th>Payload</th>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>/token</td>
+            <td>Creates a Token (login)</td>
+            <td>email (string), password (string)</td>
+        </tr>
+    </table>
+
+    <!-- Roles Section -->
+    <h2>Roles:</h2>
+    <table>
+        <tr>
+            <th>Method</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+            <th>Payload</th>
+            <th>Filters</th>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>/roles</td>
+            <td>Retrieves all roles</td>
+            <td>N/A</td>
+            <td>name</td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>/roles/{roleId}</td>
+            <td>Retrieves a single role</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
