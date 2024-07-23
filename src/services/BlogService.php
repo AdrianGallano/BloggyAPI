@@ -53,11 +53,6 @@ class BlogService
     }
     function get($blogId)
     {
-        $token = $this->tokenService->readEncodedToken();
-
-        if (!$token) {
-            return Response::payload(404, false, "unauthorized access");
-        }
 
         $blog = $this->blogModel->get($blogId);
 
@@ -74,12 +69,6 @@ class BlogService
 
     function getAll()
     {
-        $token = $this->tokenService->readEncodedToken();
-
-        if (!$token) {
-            return Response::payload(404, false, "unauthorized access");
-        }
-
         $filterStr = $this->filter->getFilterStr();
 
         if (str_contains($filterStr, "unavailable") || str_contains($filterStr, "empty")) {

@@ -63,12 +63,6 @@ class UserService
 
     function getInformation($id)
     {
-        $token = $this->tokenService->readEncodedToken();
-
-        if (!$token) {
-            return Response::payload(404, false, "unauthorized access");
-        }
-
         $user = $this->userModel->get($id);
 
         if (!$user) {
@@ -80,11 +74,6 @@ class UserService
 
     function getAllUser()
     {
-        $token = $this->tokenService->readEncodedToken();
-
-        if (!$token) {
-            return Response::payload(404, false, "unauthorized access");
-        }
 
         $filterStr = $this->filter->getFilterStr();
 

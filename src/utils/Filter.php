@@ -59,7 +59,7 @@ class Filter
         $filterArray = [];
 
         foreach ($filters as $key => $value) {
-            array_push($filterArray, "$key=$value");
+            array_push($filterArray, "$key LIKE '$value%'");
         }
 
         return implode(" AND ", $filterArray);
