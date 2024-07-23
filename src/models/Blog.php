@@ -33,9 +33,9 @@ class Blog
     function getAll($filter = "")
     {
         if ($filter == "") {
-            $queryStr = "SELECT * FROM Blog";
+            $queryStr = "SELECT Blog.*, User.username, User.image_name FROM Blog JOIN User ON Blog.user_id = User.user_id";
         } else {
-            $queryStr = "SELECT * FROM Blog WHERE $filter";
+            $queryStr = "SELECT Blog.*, User.username, User.image_name FROM Blog JOIN User ON Blog.user_id = User.user_id WHERE $filter";
         }
 
         $stmt = $this->pdo->prepare($queryStr);

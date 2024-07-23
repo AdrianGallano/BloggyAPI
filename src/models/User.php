@@ -63,7 +63,7 @@ class User
         $email = $user['email'];
         $password = $user['password'];
         $status = $user['status'];
-        $image_name = self::$path . self::$base_directory . "default.png";
+        $image_name = self::$path . self::$base_directory . "default.jpg";
 
         $queryStr = "INSERT INTO User (username, first_name, last_name, email, password,status, image_name) 
         VALUES (:username, :first_name, :last_name, :email, :password, :status, :image_name)";
