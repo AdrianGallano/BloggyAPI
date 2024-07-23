@@ -53,12 +53,6 @@ class CommentService
     }
     function get($commentId)
     {
-        $token = $this->tokenService->readEncodedToken();
-
-        if (!$token) {
-            return Response::payload(404, false, "unauthorized access");
-        }
-
         $comment = $this->commentModel->get($commentId);
 
         if (!$comment) {
@@ -74,12 +68,6 @@ class CommentService
 
     function getAll()
     {
-        $token = $this->tokenService->readEncodedToken();
-
-        if (!$token) {
-            return Response::payload(404, false, "unauthorized access");
-        }
-
         $filterStr = $this->filter->getFilterStr();
 
         if (str_contains($filterStr, "unavailable") || str_contains($filterStr, "empty")) {

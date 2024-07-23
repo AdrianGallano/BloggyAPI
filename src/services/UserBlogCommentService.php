@@ -50,11 +50,6 @@ class UserBlogCommentService
 
     function get($blogId, $commentId)
     {
-        $token = $this->tokenService->readEncodedToken();
-
-        if (!$token) {
-            return Response::payload(404, false, "unauthorized access");
-        }
 
         $userBlogComment = $this->userBlogCommentModel->get($blogId, $commentId);
 
@@ -71,11 +66,6 @@ class UserBlogCommentService
 
     function getAll()
     {
-        $token = $this->tokenService->readEncodedToken();
-
-        if (!$token) {
-            return Response::payload(404, false, "unauthorized access");
-        }
 
         $filterStr = $this->filter->getFilterStr();
 

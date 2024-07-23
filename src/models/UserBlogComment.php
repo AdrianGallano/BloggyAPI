@@ -48,10 +48,7 @@ class UserBlogComment
             Comment.content as comment_content, 
             Comment.is_edited as comment_is_edited,
             Comment.created_at as comment_created_at,
-            User.username, User.status, User.email, User.image_name, 
-            Blog.title as blog_title,Blog.content as blog_content,
-            Blog.summary as blog_summary,Blog.created_at as blog_created_at,
-            Blog.updated_at as blog_updated_at FROM UserBlogComment
+            User.username, User.status, User.email, User.image_name FROM UserBlogComment
             JOIN Comment ON UserBlogComment.comment_id = Comment.comment_id
             JOIN User ON UserBlogComment.user_id = User.user_id
             JOIN Blog ON UserBlogComment.blog_id = Blog.blog_id WHERE UserBlogComment.blog_id = :blog_id AND UserBlogComment.comment_id = :comment_id";
@@ -80,10 +77,7 @@ class UserBlogComment
             Comment.content as comment_content, 
             Comment.is_edited as comment_is_edited,
             Comment.created_at as comment_created_at,
-            User.username, User.status, User.email, User.image_name, 
-            Blog.title as blog_title,Blog.content as blog_content,
-            Blog.summary as blog_summary,Blog.created_at as blog_created_at,
-            Blog.updated_at as blog_updated_at FROM UserBlogComment
+            User.username, User.status, User.email, User.image_name FROM UserBlogComment
             JOIN Comment ON UserBlogComment.comment_id = Comment.comment_id
             JOIN User ON UserBlogComment.user_id = User.user_id
             JOIN Blog ON UserBlogComment.blog_id = Blog.blog_id";
@@ -93,10 +87,7 @@ class UserBlogComment
             Comment.content as comment_content, 
             Comment.is_edited as comment_is_edited,
             Comment.created_at as comment_created_at,
-            User.username, User.status, User.email, User.image_name, 
-            Blog.title as blog_title,Blog.content as blog_content,
-            Blog.summary as blog_summary,Blog.created_at as blog_created_at,
-            Blog.updated_at as blog_updated_at FROM UserBlogComment
+            User.username, User.status, User.email, User.image_name FROM UserBlogComment
             JOIN Comment ON UserBlogComment.comment_id = Comment.comment_id
             JOIN User ON UserBlogComment.user_id = User.user_id
             JOIN Blog ON UserBlogComment.blog_id = Blog.blog_id WHERE UserBlogComment.$filterStr";
