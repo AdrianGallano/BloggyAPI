@@ -43,8 +43,8 @@ class Filter
         }
 
         $filters = $_GET;
-        
-        foreach($this->exceptions as $exception){
+
+        foreach ($this->exceptions as $exception) {
             unset($filters[$exception]);
         }
 
@@ -59,7 +59,11 @@ class Filter
         $filterArray = [];
 
         foreach ($filters as $key => $value) {
-            array_push($filterArray, "$key LIKE '$value%'");
+            if (str_contains($key, "id")) {
+                array_push($filterArray, "$key = $value");
+            } else {
+                array_push($filterArray, "$key LIKE '$value%'");
+            }
         }
 
         return implode(" AND ", $filterArray);
